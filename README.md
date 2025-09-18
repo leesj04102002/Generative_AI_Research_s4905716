@@ -1,4 +1,4 @@
-##**Generative_AI_Research_S4905716**
+**Generative_AI_Research_S4905716**
 
 NAME:SHANGJUN LI
 
