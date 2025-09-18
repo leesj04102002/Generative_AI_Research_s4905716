@@ -1,0 +1,69 @@
+
+<svg viewBox="0 0 960 600" role="img" aria-label="Causal Loop Diagram: Community Climate Resilience">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 12,4 0,8" fill="#9adbb4"/>
+    </marker>
+    <style>
+      .node{fill:#113827;stroke:#1f4a36;stroke-width:1.5}
+      .label{fill:#ecf7f0;font:600 14px system-ui}
+      .edge{stroke:#9adbb4;stroke-width:2;fill:none;marker-end:url(#arrow)}
+      .pos{stroke:#2ecc71}
+      .neg{stroke:#ef476f}
+      .loop{fill:#9adbb4;font:700 12px system-ui}
+    </style>
+  </defs>
+
+  <!-- Nodes -->
+  <g transform="translate(120,120)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">气候素养（公众认知）</text>
+  </g>
+  <g transform="translate(380,60)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">准备度（家庭/社区）</text>
+  </g>
+  <g transform="translate(680,120)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">灾害影响（健康/财产）</text>
+  </g>
+  <g transform="translate(380,240)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">参与度（演练/自组织）</text>
+  </g>
+  <g transform="translate(120,300)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">信任（对预警的信任）</text>
+  </g>
+  <g transform="translate(680,300)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">误报/漏报</text>
+  </g>
+  <g transform="translate(120,460)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">数据与算法质量</text>
+  </g>
+
+  <!-- Edges -->
+  <g id="R_awareness" class="pos">
+    <path class="edge" d="M310,145 C360,120 380,110 420,100"/>
+    <path class="edge" d="M475,110 C520,110 630,140 680,145"/>
+    <path class="edge" d="M770,170 C720,220 610,260 525,270"/>
+    <path class="edge" d="M465,270 C370,270 240,330 210,330"/>
+    <path class="edge" d="M210,300 C210,240 180,190 180,170 180,160 200,150 210,150"/>
+    <text class="loop" x="330" y="210">R1 认知→准备→影响↓→参与→再提升认知</text>
+  </g>
+
+  <g id="B_false_alarm" class="neg">
+    <path class="edge" d="M770,325 C720,350 610,350 525,340"/>
+    <path class="edge" d="M465,330 C360,320 310,330 210,330"/>
+    <path class="edge" d="M210,350 C250,420 290,460 330,490 360,505 580,505 730,350"/>
+    <text class="loop" x="520" y="385">B1 误报↑ → 信任↓ → 参与↓ → 误报风险控制</text>
+  </g>
+
+  <g id="R_quality" class="pos">
+    <path class="edge" d="M210,485 C320,485 600,460 730,350"/>
+    <path class="edge" d="M210,485 C150,420 150,360 200,330"/>
+    <text class="loop" x="310" y="520">R2 数据质量↑ → 信任↑ → 反馈数据↑ → 质量↑</text>
+  </g>
+</svg>

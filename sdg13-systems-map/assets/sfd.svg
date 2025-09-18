@@ -1,0 +1,69 @@
+
+<svg viewBox="0 0 960 620" role="img" aria-label="Stock and Flow Diagram: Community Resilience">
+  <defs>
+    <marker id="arrow2" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 12,4 0,8" fill="#9adbb4"/>
+    </marker>
+    <style>
+      .stock{fill:#0d233d;stroke:#2d4a7a;stroke-width:2}
+      .flow{stroke:#9adbb4;stroke-width:3;marker-end:url(#arrow2)}
+      .aux{fill:#113827;stroke:#1f4a36;stroke-width:1.5}
+      .label{fill:#ecf7f0;font:600 14px system-ui}
+      .tap{fill:#9adbb4}
+    </style>
+  </defs>
+
+  <!-- Stocks -->
+  <g id="stock_res" transform="translate(120,100)">
+    <rect class="stock" width="220" height="70" rx="8" ry="8"/>
+    <text class="label" x="110" y="42" text-anchor="middle">社区韧性（Stock）</text>
+  </g>
+  <g id="stock_trust" transform="translate(120,300)">
+    <rect class="stock" width="220" height="70" rx="8" ry="8"/>
+    <text class="label" x="110" y="42" text-anchor="middle">公众信任（Stock）</text>
+  </g>
+
+  <!-- Flows into/out of Resilience -->
+  <g id="flow_training">
+    <path class="flow" d="M20,130 C60,130 100,130 120,130"/>
+    <circle class="tap" cx="60" cy="130" r="6"/>
+    <text class="label" x="30" y="110">培训/演练</text>
+  </g>
+  <g id="flow_events_out">
+    <path class="flow" d="M340,135 C520,140 700,160 840,165"/>
+    <circle class="tap" cx="340" cy="135" r="6"/>
+    <text class="label" x="520" y="150">极端事件消耗</text>
+  </g>
+
+  <!-- Flows into/out of Trust -->
+  <g id="flow_quality_in">
+    <path class="flow" d="M20,330 C60,330 100,330 120,330"/>
+    <circle class="tap" cx="60" cy="330" r="6"/>
+    <text class="label" x="30" y="310">预警质量</text>
+  </g>
+  <g id="flow_false_out">
+    <path class="flow" d="M340,335 C520,340 700,360 840,365"/>
+    <circle class="tap" cx="340" cy="335" r="6"/>
+    <text class="label" x="520" y="350">误报/信息茧房</text>
+  </g>
+
+  <!-- Auxiliaries -->
+  <g id="aux_data" transform="translate(520,250)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">数据覆盖率/延迟（Aux）</text>
+  </g>
+  <g id="aux_access" transform="translate(520,60)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">可达性/无障碍（Aux）</text>
+  </g>
+  <g id="aux_equity" transform="translate(520,430)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">公平性与语言支持（Aux）</text>
+  </g>
+
+  <!-- Connectors -->
+  <path class="flow" d="M610,250 C610,220 230,200 230,170"/>
+  <path class="flow" d="M610,250 C610,280 230,360 230,370"/>
+  <path class="flow" d="M610,85 C610,110 230,110 230,100"/>
+  <path class="flow" d="M610,455 C610,420 230,410 230,370"/>
+</svg>

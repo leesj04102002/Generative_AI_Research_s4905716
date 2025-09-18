@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>交互式系统地图</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <nav>
+    <div class="inner">
+      <div class="brand"><span class="dot"></span> SDG13 系统地图</div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="map.html">交互式地图</a></li>
+        <li><a href="analysis.html">分析与洞见</a></li>
+        <li><a href="ai.html">方法与工具</a></li>
+      </ul>
+      <a class="btn" href="#miro">跳到地图</a>
+    </div>
+  </nav>
+
+  
+
+  <section class="container">
+    <h2>本地静态图（离线备选）</h2>
+    <div id="controls">
+      <label class="toggle"><input type="checkbox" data-target="R_awareness" checked/> 高亮回路 R1（认知→准备→影响→参与）</label>
+      <label class="toggle"><input type="checkbox" data-target="B_false_alarm" checked/> 高亮回路 B1（误报—信任制衡）</label>
+      <label class="toggle"><input type="checkbox" data-target="R_quality" checked/> 高亮回路 R2（数据质量—信任—数据回流）</label>
+    </div>
+    <div class="legend">
+      <div class="key"><span class="swatch stock"></span>Stock（库）</div>
+      <div class="key"><span class="swatch flow"></span>Flow（流/箭线）</div>
+      <div class="key"><span class="swatch aux"></span>Aux（辅助变量）</div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <!-- Inject SVGs -->
+      <figure class="figure">
+        <figcaption class="kicker">因果回路图（CLD）</figcaption>
+        
+<svg viewBox="0 0 960 600" role="img" aria-label="Causal Loop Diagram: Community Climate Resilience">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 12,4 0,8" fill="#9adbb4"/>
+    </marker>
+    <style>
+      .node{fill:#113827;stroke:#1f4a36;stroke-width:1.5}
+      .label{fill:#ecf7f0;font:600 14px system-ui}
+      .edge{stroke:#9adbb4;stroke-width:2;fill:none;marker-end:url(#arrow)}
+      .pos{stroke:#2ecc71}
+      .neg{stroke:#ef476f}
+      .loop{fill:#9adbb4;font:700 12px system-ui}
+    </style>
+  </defs>
+
+  <!-- Nodes -->
+  <g transform="translate(120,120)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">气候素养（公众认知）</text>
+  </g>
+  <g transform="translate(380,60)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">准备度（家庭/社区）</text>
+  </g>
+  <g transform="translate(680,120)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">灾害影响（健康/财产）</text>
+  </g>
+  <g transform="translate(380,240)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">参与度（演练/自组织）</text>
+  </g>
+  <g transform="translate(120,300)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">信任（对预警的信任）</text>
+  </g>
+  <g transform="translate(680,300)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">误报/漏报</text>
+  </g>
+  <g transform="translate(120,460)">
+    <rect class="node" rx="10" ry="10" width="190" height="50"/>
+    <text class="label" x="95" y="30" text-anchor="middle">数据与算法质量</text>
+  </g>
+
+  <!-- Edges -->
+  <g id="R_awareness" class="pos">
+    <path class="edge" d="M310,145 C360,120 380,110 420,100"/>
+    <path class="edge" d="M475,110 C520,110 630,140 680,145"/>
+    <path class="edge" d="M770,170 C720,220 610,260 525,270"/>
+    <path class="edge" d="M465,270 C370,270 240,330 210,330"/>
+    <path class="edge" d="M210,300 C210,240 180,190 180,170 180,160 200,150 210,150"/>
+    <text class="loop" x="330" y="210">R1 认知→准备→影响↓→参与→再提升认知</text>
+  </g>
+
+  <g id="B_false_alarm" class="neg">
+    <path class="edge" d="M770,325 C720,350 610,350 525,340"/>
+    <path class="edge" d="M465,330 C360,320 310,330 210,330"/>
+    <path class="edge" d="M210,350 C250,420 290,460 330,490 360,505 580,505 730,350"/>
+    <text class="loop" x="520" y="385">B1 误报↑ → 信任↓ → 参与↓ → 误报风险控制</text>
+  </g>
+
+  <g id="R_quality" class="pos">
+    <path class="edge" d="M210,485 C320,485 600,460 730,350"/>
+    <path class="edge" d="M210,485 C150,420 150,360 200,330"/>
+    <text class="loop" x="310" y="520">R2 数据质量↑ → 信任↑ → 反馈数据↑ → 质量↑</text>
+  </g>
+</svg>
+
+      </figure>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <figure class="figure">
+        <figcaption class="kicker">库存—流图（SFD）</figcaption>
+        
+<svg viewBox="0 0 960 620" role="img" aria-label="Stock and Flow Diagram: Community Resilience">
+  <defs>
+    <marker id="arrow2" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 12,4 0,8" fill="#9adbb4"/>
+    </marker>
+    <style>
+      .stock{fill:#0d233d;stroke:#2d4a7a;stroke-width:2}
+      .flow{stroke:#9adbb4;stroke-width:3;marker-end:url(#arrow2)}
+      .aux{fill:#113827;stroke:#1f4a36;stroke-width:1.5}
+      .label{fill:#ecf7f0;font:600 14px system-ui}
+      .tap{fill:#9adbb4}
+    </style>
+  </defs>
+
+  <!-- Stocks -->
+  <g id="stock_res" transform="translate(120,100)">
+    <rect class="stock" width="220" height="70" rx="8" ry="8"/>
+    <text class="label" x="110" y="42" text-anchor="middle">社区韧性（Stock）</text>
+  </g>
+  <g id="stock_trust" transform="translate(120,300)">
+    <rect class="stock" width="220" height="70" rx="8" ry="8"/>
+    <text class="label" x="110" y="42" text-anchor="middle">公众信任（Stock）</text>
+  </g>
+
+  <!-- Flows into/out of Resilience -->
+  <g id="flow_training">
+    <path class="flow" d="M20,130 C60,130 100,130 120,130"/>
+    <circle class="tap" cx="60" cy="130" r="6"/>
+    <text class="label" x="30" y="110">培训/演练</text>
+  </g>
+  <g id="flow_events_out">
+    <path class="flow" d="M340,135 C520,140 700,160 840,165"/>
+    <circle class="tap" cx="340" cy="135" r="6"/>
+    <text class="label" x="520" y="150">极端事件消耗</text>
+  </g>
+
+  <!-- Flows into/out of Trust -->
+  <g id="flow_quality_in">
+    <path class="flow" d="M20,330 C60,330 100,330 120,330"/>
+    <circle class="tap" cx="60" cy="330" r="6"/>
+    <text class="label" x="30" y="310">预警质量</text>
+  </g>
+  <g id="flow_false_out">
+    <path class="flow" d="M340,335 C520,340 700,360 840,365"/>
+    <circle class="tap" cx="340" cy="335" r="6"/>
+    <text class="label" x="520" y="350">误报/信息茧房</text>
+  </g>
+
+  <!-- Auxiliaries -->
+  <g id="aux_data" transform="translate(520,250)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">数据覆盖率/延迟（Aux）</text>
+  </g>
+  <g id="aux_access" transform="translate(520,60)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">可达性/无障碍（Aux）</text>
+  </g>
+  <g id="aux_equity" transform="translate(520,430)">
+    <rect class="aux" width="180" height="50" rx="8" ry="8"/>
+    <text class="label" x="90" y="30" text-anchor="middle">公平性与语言支持（Aux）</text>
+  </g>
+
+  <!-- Connectors -->
+  <path class="flow" d="M610,250 C610,220 230,200 230,170"/>
+  <path class="flow" d="M610,250 C610,280 230,360 230,370"/>
+  <path class="flow" d="M610,85 C610,110 230,110 230,100"/>
+  <path class="flow" d="M610,455 C610,420 230,410 230,370"/>
+</svg>
+
+      </figure>
+    </div>
+  </section>
+
+  
+  <footer class="container small">
+    <p><strong>SHANGJU LI</strong>（学号 49057160） | 课程：DECO6500_7560_62507 | 社区：Rocklea（Brisbane） | 更新：2025-08-19</p>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
