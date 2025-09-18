@@ -1,1 +1,2 @@
 Generative_AI_Research_S4905716
+REIT_6811_DATA
